@@ -1,10 +1,15 @@
 [package]
-name = "microservice"
-version = "0.1.0"
-authors = ["Ahmed Mostafa"]
+name = "blink"
+version = "0.1.1"
+authors = ["Ahmed Mostafa <amk67482@gmail.com>"]
 edition = "2018"
+license = "GNU GPLv3"
+repository = "https://github.com/mgattozzi/chiisai.git"
+homepage = "https://github.com/mgattozzi/chiisai"
+readme = "README.md"
+description = "Fast, simple and reliable microservice library"
 
 [dependencies]
 hyper = "0.11"
 futures = "0.1"
-url = "1.6"
+url = "1.7"
