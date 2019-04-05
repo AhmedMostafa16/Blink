@@ -92,7 +92,7 @@ impl<'b> Service for &'b Blink {
                     let url_in = ftry!(base.clone().join(&url));
                     let test = ftry!(base.clone().join(&req.path()));
                     let mut url_in = ftry_opt!(url_in.path_segments());
-                    let mut test = ftry_opt!(test.path_segments());
+                    let test = ftry_opt!(test.path_segments());
 
                     let size1 = url_in.clone().count();
                     let size2 = test.clone().count();
