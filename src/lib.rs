@@ -1,14 +1,15 @@
-pub extern crate hyper;
 pub extern crate futures;
+pub extern crate hyper;
 extern crate url;
 
-use std::net::SocketAddr;
 use std::collections::HashMap;
-use hyper::server::{Http, Service};
-use hyper::{Request, Response, Method, StatusCode};
-use futures::future::{FutureResult, ok, err};
-use url::Url;
 use std::io::{Error, ErrorKind};
+use std::net::SocketAddr;
+
+use futures::future::{err, FutureResult, ok};
+use hyper::{Method, Request, Response, StatusCode};
+use hyper::server::{Http, Service};
+use url::Url;
 
 macro_rules! ftry {
     ($exp: expr) => {
@@ -51,8 +52,7 @@ impl Blink {
         self
     }
 
-    pub fn run(self) -> Result<(), hyper::Error>
-    {
+    pub fn run(self) -> Result<(), hyper::Error> {
         let address_str = "127.0.0.1:".to_string() + &self.port.to_string();
         let address: SocketAddr = address_str.parse().unwrap();
         println!("Running server on {}", address);

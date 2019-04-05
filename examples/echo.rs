@@ -1,11 +1,12 @@
-pub extern crate hyper;
 pub extern crate futures;
+pub extern crate hyper;
 
-use std::net::SocketAddr;
 use std::collections::HashMap;
-use hyper::server::{Http, Service};
-use hyper::{Request, Response, Method, StatusCode};
+use std::net::SocketAddr;
+
 use futures::future::FutureResult;
+use hyper::{Method, Request, Response, StatusCode};
+use hyper::server::{Http, Service};
 
 pub struct Blink {
     routes: HashMap<(Method, String), Box<Route<Method=Method>>>,

@@ -19,7 +19,7 @@ operator only versions 1.15 and up of `rustc` are supported.
 
 ## How to use the library
 
-Put the following in your `Cargo.toml`:
+Put the following in `Cargo.toml` of your project:
 
 ```toml
 [dependencies]
@@ -42,8 +42,8 @@ The following bit of code creates a simple echo server:
 
 ```rust
 #[macro_use] extern crate blink;
-// Imports traits and the rexported hyper and futures crates
-use chiisai::*;
+// Imports traits and the reexported hyper and futures crates
+use blink::*;
 use futures::future::ok;
 use hyper::header::ContentLength;
 static INDEX: &'static [u8] = b"Try POST /echo\n";
@@ -51,7 +51,7 @@ fn main() {
     // Set up the routes and run it.
     // You can set the port as well with a function call
     // before run() to port() by default it runs on 7878
-    Chiisai::new().routes(router! {
+    Blink::new().routes(router! {
         ("/", GetEcho)
         ("/echo", GetEcho)
         ("/echo", PostEcho)
